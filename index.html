@@ -260,4 +260,10 @@ setTimeout(removeLovableBadge,3000);
 		}
 	})();
 </script>
-</body></html>
+<script>
+(function(){
+  var hoje=new Date().toLocaleDateString("pt-BR",{day:"2-digit",month:"2-digit",year:"numeric"});
+  var w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT),n;
+  while(n=w.nextNode()){ if(/\d{2}\/\d{2}\/\d{4}/.test(n.nodeValue) && /promo|válida/i.test(n.parentNode.textContent)){ n.nodeValue=n.nodeValue.replace(/\d{2}\/\d{2}\/\d{4}/,hoje); } }
+})();
+</script></body></html>
